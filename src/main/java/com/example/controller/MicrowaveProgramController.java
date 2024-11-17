@@ -1,5 +1,8 @@
+package com.example.controller;
+
+import com.example.service.MicrowaveProgramService; // Убедитесь, что импорт правильный
+import com.example.model.MicrowaveProgram;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -7,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/programs")
 public class MicrowaveProgramController {
+
     private final MicrowaveProgramService service;
 
     @Autowired
@@ -20,13 +24,12 @@ public class MicrowaveProgramController {
     }
 
     @PostMapping
-    public ResponseEntity<MicrowaveProgram> addProgram(@RequestBody MicrowaveProgram program) {
-        return ResponseEntity.ok(service.addProgram(program));
+    public MicrowaveProgram addProgram(@RequestBody MicrowaveProgram program) {
+        return service.addProgram(program);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProgram(@PathVariable Long id) {
+    public void deleteProgram(@PathVariable Long id) {
         service.deleteProgram(id);
-        return ResponseEntity.noContent().build();
     }
 }
