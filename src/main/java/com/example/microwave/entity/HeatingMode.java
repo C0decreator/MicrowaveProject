@@ -1,14 +1,19 @@
 package com.example.microwave.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
+@Entity
 public class HeatingMode {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String modeName;
+    private String mode;
 
-    public HeatingMode(Long id, String modeName) {
-        this.id = id;
-        this.modeName = modeName;
-    }
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -17,19 +22,11 @@ public class HeatingMode {
         this.id = id;
     }
 
-    public String getModeName() {
-        return modeName;
+    public String getMode() {
+        return mode;
     }
 
-    public void setModeName(String modeName) {
-        this.modeName = modeName;
-    }
-
-    @Override
-    public String toString() {
-        return "HeatingMode{" +
-                "id=" + id +
-                ", modeName='" + modeName + '\'' +
-                '}';
+    public void setMode(String mode) {
+        this.mode = mode;
     }
 }
