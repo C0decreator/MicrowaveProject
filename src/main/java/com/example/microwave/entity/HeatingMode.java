@@ -1,9 +1,6 @@
 package com.example.microwave.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "heating_mode")
 public class HeatingMode {
 
     @Id
@@ -19,6 +17,6 @@ public class HeatingMode {
     private Long id;
     private String mode;
     private Integer power;
-    private String duration;
+    private Integer duration;
 
 }
